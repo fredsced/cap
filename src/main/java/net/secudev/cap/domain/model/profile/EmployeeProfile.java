@@ -12,21 +12,18 @@ import lombok.ToString;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString(callSuper = true, includeFieldNames = true)
-@DiscriminatorValue("org")
-public class OrganizationProfile extends AProfile {
-
+@ToString(callSuper=true, includeFieldNames=true)
+@DiscriminatorValue("emp")
+public class EmployeeProfile extends AProfile{
+	
 	@Getter
 	@Setter
 	@Column(unique = true)
-	private String orgName;
-	@Getter
-	@Setter
-	private String webSiteUrl;
-
-	public OrganizationProfile(String orgName, String webSiteUrl) {
-		setOrgName(orgName);
-		setWebSiteUrl(webSiteUrl);
+	private String employeeId;
+	
+	public EmployeeProfile(String employeeId)
+	{
+		setEmployeeId(employeeId);
 	}
 
 }
